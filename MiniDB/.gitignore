@@ -1,0 +1,1 @@
+"*.exe\n*.out\n*.obj"   # Optional: ignore compiled files
