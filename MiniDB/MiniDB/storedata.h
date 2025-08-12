@@ -11,7 +11,7 @@ private:
 
 	std::string name;
 	unsigned int age;
-	std::vector<Record>database;
+	static std::vector<Record>database;
 
 public: 
 
@@ -20,19 +20,16 @@ public:
 		name = "";
 		age = 0;
 	}
-
 	std::string GetName();
 	int GetAge();
+
+	void SetName(std::string inputName);
+	void SetAge(int inputAge);
 	
+	void DatabaseArraySetter(std::string inputName , int inputAge);
 
 
 };	
-
-
-
-
-
-
 
 
 #endif STOREDATA_H
