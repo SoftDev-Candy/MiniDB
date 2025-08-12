@@ -37,16 +37,53 @@ void DBCommands::startLoop()
 
 			}
 		}
+
 		if (!word.empty())
 		{
 		
 			wordsArray.push_back(word);
 		
 		}
+
+		
+		if(wordsArray[0] == "insert") //if we would like to add to the array 
+		{
+			if (wordsArray.size() > 2)
+			{
+				InsertInRecord(wordsArray);
+			}
+		}
+		else if(wordsArray[0] == "select") //if we'd like to select data depends if we want the complete array or a singular element
+		{
+			SelectInRecord(wordsArray);
+		}
+
 		if (wordsArray.size() > 0) std::cout << "Command: " << wordsArray[0] << "\n"; //the if checks are there to prevent any unknown behaviour
 		if (wordsArray.size() > 1) std::cout << "Arg1: " << wordsArray[1] << "\n"; //i.e if the wordarray only has one element print wordsarray[0]
 		if (wordsArray.size() > 2) std::cout << "Arg2: " << wordsArray[2] << "\n";//if its has 2 print the next one and so on
 
+	}
+
+}
+
+void DBCommands::InsertInRecord(std::vector<std::string>& wordsArray)
+{
+
+	int num = std::stoi(wordsArray[2]);
+	Record::DatabaseSetter(wordsArray[1], num);
+
+}
+
+void DBCommands::SelectInRecord(std::vector<std::string>& wordsArray)
+{
+	int databaseSize = Record::DatabaseGetter().size();
+	int start = 0;
+	if (wordsArray.size() == 1)
+	{
+		while (start <= databaseSize)
+		{
+			std::cout<< Record::DatabaseGetter()[start]
+		}
 	}
 
 }

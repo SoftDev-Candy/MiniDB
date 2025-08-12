@@ -26,7 +26,8 @@ public:
 	void SetName(std::string inputName);
 	void SetAge(int inputAge);
 	
-	void DatabaseArraySetter(std::string inputName , int inputAge);
+	static void DatabaseSetter(std::string inputName , int inputAge);
+	static const std::vector<Record>& DatabaseGetter();
 
 
 };	

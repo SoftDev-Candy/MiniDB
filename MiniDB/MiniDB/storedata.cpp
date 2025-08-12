@@ -1,6 +1,6 @@
 #include "storedata.h"
 
-static std::vector<Record>database;
+ std::vector<Record>Record::database;
 
 std::string Record::GetName()
 {
@@ -22,9 +22,16 @@ void Record::SetAge(int inputAge)
 	age = inputAge;
 }
 
-void Record::DatabaseArraySetter(std::string inputName, int inputAge)
+void Record::DatabaseSetter(std::string inputName, int inputAge)   // this will push object of the class in vector cant drop in individual elements as the vector is of type record and will only take obj of record as input.
 {
+	Record obj;
+	obj.SetName(inputName);
+	obj.SetAge(inputAge);
+	database.push_back(obj);
 
+}
 
-
+const std::vector<Record>& Record::DatabaseGetter()
+{
+	return database;
 }

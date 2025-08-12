@@ -1,4 +1,12 @@
 ﻿  command.cpp
   main.cpp
+  storedata.cpp
   Generating Code...
-  MiniDB.vcxproj -> D:\MiniDB\MiniDB\x64\Debug\MiniDB.exe
+C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.cpp(34,30): error C2556: 'std::vector<Record,std::allocator<Record>> &Record::DatabaseGetter(void)': overloaded function differs only by return type from 'const std::vector<Record,std::allocator<Record>> &Record::DatabaseGetter(void)'
+      C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.h(30,36):
+      see declaration of 'Record::DatabaseGetter'
+  
+C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.cpp(34,30): error C2373: 'Record::DatabaseGetter': redefinition; different type modifiers
+      C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.h(30,36):
+      see declaration of 'Record::DatabaseGetter'
+  
