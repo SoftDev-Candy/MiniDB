@@ -1,6 +1,7 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 #include<iostream>
+#include<limits>
 #include"storedata.h"
 
 class DBCommands
@@ -13,7 +14,7 @@ public:
 	void startLoop();
 	void InsertInRecord(std::vector<std::string>& wordsArray);
 	void SelectInRecord(std::vector<std::string>& wordsArray);
-
+	
 
 
 };

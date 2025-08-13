@@ -2,12 +2,12 @@
 
  std::vector<Record>Record::database;
 
-std::string Record::GetName()
+std::string Record::GetName()const
 {
 	return name;
 }
 
-int Record::GetAge()
+int Record::GetAge()const
 {
 	return age;
 }
@@ -34,4 +34,13 @@ void Record::DatabaseSetter(std::string inputName, int inputAge)   // this will 
 const std::vector<Record>& Record::DatabaseGetter()
 {
 	return database;
+}
+
+
+std::ostream& operator<<(std::ostream& os, const Record& rec)
+{
+	os << std::setw(15) << rec.GetName() << std::setw(5) << rec.GetAge();
+
+	return os; 
+
 }

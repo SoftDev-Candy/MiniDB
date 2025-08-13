@@ -1,6 +1,7 @@
 #ifndef STOREDATA_H
 #define STOREDATA_H 
-
+#include<iostream>
+#include<iomanip>
 #include<string>
 #include<vector>
 //To store and record data in an array. 
@@ -20,8 +21,8 @@ public:
 		name = "";
 		age = 0;
 	}
-	std::string GetName();
-	int GetAge();
+	std::string GetName()const;
+	int GetAge()const;
 
 	void SetName(std::string inputName);
 	void SetAge(int inputAge);
@@ -30,7 +31,9 @@ public:
 	static const std::vector<Record>& DatabaseGetter();
 
 
+
 };	
 
+std::ostream& operator<<(std::ostream& os, const Record& rec);
 
 #endif STOREDATA_H

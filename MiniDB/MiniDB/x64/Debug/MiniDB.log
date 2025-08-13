@@ -1,12 +1,6 @@
-﻿  command.cpp
-  main.cpp
+﻿  main.cpp
+  command.cpp
+C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\command.cpp(82,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   storedata.cpp
   Generating Code...
-C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.cpp(34,30): error C2556: 'std::vector<Record,std::allocator<Record>> &Record::DatabaseGetter(void)': overloaded function differs only by return type from 'const std::vector<Record,std::allocator<Record>> &Record::DatabaseGetter(void)'
-      C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.h(30,36):
-      see declaration of 'Record::DatabaseGetter'
-  
-C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.cpp(34,30): error C2373: 'Record::DatabaseGetter': redefinition; different type modifiers
-      C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\storedata.h(30,36):
-      see declaration of 'Record::DatabaseGetter'
-  
+  MiniDB.vcxproj -> C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\x64\Debug\MiniDB.exe

@@ -23,7 +23,7 @@ void DBCommands::startLoop()
 		std::vector<std::string>wordsArray;
 		std::string word;
 
-		for (int i = 0; i < enterLine.length() - 1; i++)
+		for (int i = 0;i < enterLine.length();i++)
 		{
 			if (enterLine[i] != ' ')
 			{
@@ -31,21 +31,23 @@ void DBCommands::startLoop()
 			}
 			else if (!word.empty())
 			{
-				
 				wordsArray.push_back(word);
 				word.clear();
-
 			}
 		}
 
 		if (!word.empty())
 		{
-		
 			wordsArray.push_back(word);
+		}
 		
+		if (wordsArray.size() >= 1)
+		{
+			std::cout << "The input here is invalid"<<std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max,"\n");
 		}
 
-		
 		if(wordsArray[0] == "insert") //if we would like to add to the array 
 		{
 			if (wordsArray.size() > 2)
@@ -53,9 +55,20 @@ void DBCommands::startLoop()
 				InsertInRecord(wordsArray);
 			}
 		}
+
 		else if(wordsArray[0] == "select") //if we'd like to select data depends if we want the complete array or a singular element
 		{
-			SelectInRecord(wordsArray);
+			if (wordsArray.size() >= 2)
+			{
+				if (wordsArray[1] == "all")
+				{
+					SelectInRecord(wordsArray);
+				}
+				else
+				{
+				
+				}
+			}
 		}
 
 		if (wordsArray.size() > 0) std::cout << "Command: " << wordsArray[0] << "\n"; //the if checks are there to prevent any unknown behaviour
@@ -76,13 +89,15 @@ void DBCommands::InsertInRecord(std::vector<std::string>& wordsArray)
 
 void DBCommands::SelectInRecord(std::vector<std::string>& wordsArray)
 {
+
 	int databaseSize = Record::DatabaseGetter().size();
 	int start = 0;
-	if (wordsArray.size() == 1)
+
+	if (wordsArray.size() == 2)
 	{
-		while (start <= databaseSize)
+		for (const auto& rec : Record::DatabaseGetter())
 		{
-			std::cout<< Record::DatabaseGetter()[start]
+			std::cout << rec << std::endl;
 		}
 	}
 
