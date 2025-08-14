@@ -41,11 +41,13 @@ void DBCommands::startLoop()
 			wordsArray.push_back(word);
 		}
 		
-		if (wordsArray.size() >= 1)
+		if (wordsArray.size() < 1)
 		{
 			std::cout << "The input here is invalid"<<std::endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max,"\n");
+			continue;
+			//std::cin.clear(); // this is unecessary and is probably not going to work. 
+			//std::cin.ignore(std::numeric_limits<std::streamsize>::max,"\n");//because wordsarray is not input ...... soo what can we do here 
+			////let the loop run or ..hmm or call the start function again 
 		}
 
 		if(wordsArray[0] == "insert") //if we would like to add to the array 
