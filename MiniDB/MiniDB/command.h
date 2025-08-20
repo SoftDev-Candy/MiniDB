@@ -13,7 +13,8 @@ public:
 	std::string Input();
 	void startLoop();
 	void InsertInRecord(std::vector<std::string>& wordsArray);
-	void SelectInRecord(std::vector<std::string>& wordsArray);
+	void SelectAllRecords();
+	void SelectOneRecord(std::vector<std::string>& wordsArray);
 	
 
 

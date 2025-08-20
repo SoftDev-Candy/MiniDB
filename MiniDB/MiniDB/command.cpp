@@ -56,21 +56,34 @@ void DBCommands::startLoop()
 			{
 				InsertInRecord(wordsArray);
 			}
+			else
+			{
+				std::cout << " Invalid Insert Command \n. Insert Commands usage: ";
+				std::cout << "  insert 'name' 'age' \n";
+				
+			}
 		}
 
-		else if(wordsArray[0] == "select") //if we'd like to select data depends if we want the complete array or a singular element
+		else if (wordsArray[0] == "select") //if we'd like to select data depends if we want the complete array or a singular element
 		{
 			if (wordsArray.size() >= 2)
 			{
 				if (wordsArray[1] == "all")
 				{
-					SelectInRecord(wordsArray);
+					SelectAllRecords();
 				}
 				else
 				{
-				
+					SelectOneRecord(wordsArray);
 				}
 			}
+			else
+			{
+				std::cout << " Invalid Select Command \n. Select  Commands usuage: ";
+				std::cout << "  select all\n";
+				std::cout << "  select <name>\n";
+			}
+
 		}
 
 		if (wordsArray.size() > 0) std::cout << "Command: " << wordsArray[0] << "\n"; //the if checks are there to prevent any unknown behaviour
@@ -89,18 +102,36 @@ void DBCommands::InsertInRecord(std::vector<std::string>& wordsArray)
 
 }
 
-void DBCommands::SelectInRecord(std::vector<std::string>& wordsArray)
+void DBCommands::SelectAllRecords()
 {
 
-	int databaseSize = Record::DatabaseGetter().size();
-	int start = 0;
-
-	if (wordsArray.size() == 2)
-	{
 		for (const auto& rec : Record::DatabaseGetter())
 		{
 			std::cout << rec << std::endl;
 		}
+
+}
+
+void DBCommands::SelectOneRecord(std::vector<std::string>& wordsArray)
+{
+
+	int databaseSize = Record::DatabaseGetter().size();
+
+	bool found = false;
+	for (const auto& rec : Record::DatabaseGetter())
+	{
+		if (wordsArray[1] == rec.GetName())
+		{
+			std::cout << rec << std::endl;
+			found = true;
+		}
+
+
 	}
+	if (!found)
+	{
+		std::cout << "No Records were found under this Name." << std::endl;
+	}
+
 
 }
