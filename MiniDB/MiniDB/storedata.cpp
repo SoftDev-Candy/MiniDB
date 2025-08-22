@@ -28,6 +28,7 @@ void Record::DatabaseSetter(std::string inputName, int inputAge)   // this will 
 	obj.SetName(inputName);
 	obj.SetAge(inputAge);
 	database.push_back(obj);
+	obj.AppendDatabase();
 
 }
 
@@ -50,19 +51,24 @@ void Record::Create_Open_Database() // call function to allow read and write in 
 void Record::AppendDatabase()
 {
 	std::fstream databasefile("Record.txt", std::ios::app);
-
+	databasefile << GetName() << " " << GetAge() << std::endl;
 }
 
 void Record::ReadDatabase()
 {
 	std::fstream databasefile("Record.txt", std::ios::in);
+	std::string name;
+	unsigned int age;
 
+	while (databasefile >> name >> age)
+	{
+		Record object(name, age);
+		database.push_back(object);
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, const Record& rec)
 {
 	os << std::setw(15) << rec.GetName() << std::setw(5) << rec.GetAge();
-
 	return os; 
-
 }

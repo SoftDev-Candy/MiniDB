@@ -25,6 +25,7 @@ void DBCommands::startLoop()
 
 		for (int i = 0;i < enterLine.length();i++)
 		{
+			
 			if (enterLine[i] != ' ')
 			{
 				word += enterLine[i];
@@ -86,7 +87,6 @@ void DBCommands::startLoop()
 				std::cout << "  select all\n";
 				std::cout << "  select <name>\n";
 			}
-
 		}
 
 		if (wordsArray.size() > 0) std::cout << "Command: " << wordsArray[0] << "\n"; //the if checks are there to prevent any unknown behaviour
@@ -94,30 +94,24 @@ void DBCommands::startLoop()
 		if (wordsArray.size() > 2) std::cout << "Arg2: " << wordsArray[2] << "\n";//if its has 2 print the next one and so on
 
 	}
-
 }
 
 void DBCommands::InsertInRecord(std::vector<std::string>& wordsArray)
 {
-
 	int num = std::stoi(wordsArray[2]);
 	Record::DatabaseSetter(wordsArray[1], num);
-
 }
 
 void DBCommands::SelectAllRecords()
 {
-
 		for (const auto& rec : Record::DatabaseGetter())
 		{
 			std::cout << rec << std::endl;
 		}
-
 }
 
 void DBCommands::SelectOneRecord(std::vector<std::string>& wordsArray)
 {
-
 	int databaseSize = Record::DatabaseGetter().size();
 
 	bool found = false;
@@ -128,13 +122,9 @@ void DBCommands::SelectOneRecord(std::vector<std::string>& wordsArray)
 			std::cout << rec << std::endl;
 			found = true;
 		}
-
-
 	}
 	if (!found)
 	{
 		std::cout << "No Records were found under this Name." << std::endl;
 	}
-
-
 }

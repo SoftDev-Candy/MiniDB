@@ -6,6 +6,7 @@
 
 class DBCommands
 {
+	
 private: 
 	std::string enterLine;
 
@@ -15,12 +16,7 @@ public:
 	void InsertInRecord(std::vector<std::string>& wordsArray);
 	void SelectAllRecords();
 	void SelectOneRecord(std::vector<std::string>& wordsArray);
-	
-
 
 };
-
-
-
 
 #endif COMMAND_H

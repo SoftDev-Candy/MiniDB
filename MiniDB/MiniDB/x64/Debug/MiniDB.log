@@ -1,3 +1,6 @@
-﻿  command.cpp
-C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\command.cpp(105,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+﻿  main.cpp
+  command.cpp
+C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\MiniDB\command.cpp(114,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  storedata.cpp
+  Generating Code...
   MiniDB.vcxproj -> C:\Users\Swastik.Toprani\Desktop\MiniD\MiniDB\x64\Debug\MiniDB.exe
