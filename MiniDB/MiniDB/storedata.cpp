@@ -1,6 +1,7 @@
 #include "storedata.h"
 
  std::vector<Record>Record::database;
+ unsigned int Record::nextId = 1;
 
 std::string Record::GetName()const
 {
@@ -27,6 +28,7 @@ void Record::DatabaseSetter(std::string inputName, int inputAge)   // this will 
 	Record obj;
 	obj.SetName(inputName);
 	obj.SetAge(inputAge);
+	nextId++;
 	database.push_back(obj);
 	obj.AppendDatabase();
 
@@ -59,10 +61,10 @@ void Record::ReadDatabase()
 	std::fstream databasefile("Record.txt", std::ios::in);
 	std::string name;
 	unsigned int age;
-
-	while (databasefile >> name >> age)
+	unsigned int id;
+	while (databasefile >> id >> name >> age )
 	{
-		Record object(name, age);
+		Record object(name,age,id);
 		database.push_back(object);
 	}
 }

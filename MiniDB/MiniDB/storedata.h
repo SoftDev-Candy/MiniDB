@@ -14,7 +14,10 @@ private:
 
 	std::string name;
 	unsigned int age;
+	unsigned int id;
 	static std::vector<Record>database;
+	static unsigned int nextId;
+
 
 public: 
 
@@ -22,12 +25,15 @@ public:
 	{
 		name = "";
 		age = 0;
+		id = nextId++;
+		
 	}
 
-	Record(std::string s, unsigned int a)//Parametrized Constructor to use in 
+	Record(std::string s, unsigned int a ,unsigned int i)//Parametrized Constructor to use in 
 	{
 		name = s;
 		age = a;
+		id = i;
 	}
 
 	std::string GetName()const; //Getting individual elements
@@ -44,6 +50,7 @@ public:
 	void Create_Open_Database();
 	void AppendDatabase();
 	void ReadDatabase();
+
 
 };	
 std::ostream& operator<<(std::ostream& os, const Record& rec);//overloading COUT operator hell yeah! 
