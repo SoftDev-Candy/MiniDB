@@ -4,6 +4,7 @@
 #include<iomanip>
 #include<string>
 #include<vector>
+#include<fstream>
 //To store and record data in an array. 
 
 class Record  
@@ -30,6 +31,11 @@ public:
 	static void DatabaseSetter(std::string inputName , int inputAge);
 	static const std::vector<Record>& DatabaseGetter();
 
+	void Create_Open_Database();
+	
+	void AppendDatabase();
+
+	void ReadDatabase();
 
 
 };	

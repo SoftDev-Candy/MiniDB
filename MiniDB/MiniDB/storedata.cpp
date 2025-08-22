@@ -36,6 +36,28 @@ const std::vector<Record>& Record::DatabaseGetter()
 	return database;
 }
 
+void Record::Create_Open_Database() // call function to allow read and write in to the file
+{
+	std::ofstream databasefile("Record.txt", std::ios::app);
+
+	if(!databasefile.is_open())
+	{
+		std::cerr << "Error: Unable to open the file. \n File does not exist or Check file location." << std::endl;
+		return;
+	}
+}
+
+void Record::AppendDatabase()
+{
+	std::fstream databasefile("Record.txt", std::ios::app);
+
+}
+
+void Record::ReadDatabase()
+{
+	std::fstream databasefile("Record.txt", std::ios::in);
+
+}
 
 std::ostream& operator<<(std::ostream& os, const Record& rec)
 {

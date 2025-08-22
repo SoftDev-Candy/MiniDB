@@ -50,6 +50,9 @@ void DBCommands::startLoop()
 			////let the loop run or ..hmm or call the start function again 
 		}
 
+		Record object;
+		object.Create_Open_Database();
+
 		if(wordsArray[0] == "insert") //if we would like to add to the array 
 		{
 			if (wordsArray.size() > 2)
