@@ -21,7 +21,7 @@ private:
 
 public: 
 
-	Record() //Constructor
+	Record() //Constructor |if not used delete later 
 	{
 		name = "";
 		age = 0;
@@ -29,7 +29,14 @@ public:
 		
 	}
 
-	Record(std::string s, unsigned int a ,unsigned int i)//Parametrized Constructor to use in 
+	Record(std::string s, unsigned int a)//For database setter.
+	{
+		name = s;
+		age = a;
+		id = nextId++;
+	}
+
+	Record(	unsigned int i,std::string s, unsigned int a )//Parametrized Constructor to use in 
 	{
 		name = s;
 		age = a;
@@ -37,7 +44,10 @@ public:
 	}
 
 	std::string GetName()const; //Getting individual elements
-	int GetAge()const;
+	unsigned int GetAge()const;
+
+	unsigned int GetId() const { return id; }
+
 
 	void SetName(std::string inputName);//Setting indvidual elements
 	void SetAge(int inputAge);
@@ -47,9 +57,9 @@ public:
 	static const std::vector<Record>& DatabaseGetter();
 
 	//Create,Read,Append the database file in local system 
-	void Create_Open_Database();
-	void AppendDatabase();
-	void ReadDatabase();
+	static void Create_Open_Database();
+	static void AppendDatabase();
+	static void ReadDatabase();
 
 
 };	

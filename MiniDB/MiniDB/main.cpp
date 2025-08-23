@@ -4,9 +4,8 @@
 int main()
 {
 
-	Record file;
-	file.Create_Open_Database();
-	file.ReadDatabase();
+	Record::Create_Open_Database();
+	Record::ReadDatabase();
 
 	DBCommands classobj; 
 	classobj.startLoop();
