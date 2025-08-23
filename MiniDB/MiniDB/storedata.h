@@ -21,13 +21,13 @@ private:
 
 public: 
 
-	Record() //Constructor |if not used delete later 
-	{
-		name = "";
-		age = 0;
-		id = nextId++;
-		
-	}
+	//Record() //Constructor |if not used delete later 
+	//{
+	//	name = "";
+	//	age = 0;
+	//	id = nextId++;
+	//	
+	//}
 
 	Record(std::string s, unsigned int a)//For database setter.
 	{
@@ -58,7 +58,7 @@ public:
 
 	//Create,Read,Append the database file in local system 
 	static void Create_Open_Database();
-	static void AppendDatabase();
+	void AppendDatabase();
 	static void ReadDatabase();
 
 

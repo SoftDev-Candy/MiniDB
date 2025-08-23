@@ -55,8 +55,8 @@ void Record::AppendDatabase()
 		std::cerr << "Error: Could not open Record.txt for appending!" << std::endl;
 		return;
 	}
-	Record rec;
-	databasefile <<rec.id <<" "<< rec.GetName() << " " << rec.GetAge() << std::endl;
+	
+	databasefile <<this->GetId() <<" "<< this->GetName() << " " << this->GetAge() << std::endl;
 }
 
 void Record::ReadDatabase()
@@ -69,8 +69,8 @@ void Record::ReadDatabase()
 
 	while (databasefile >> id >> name >> age )
 	{
-		Record object(id,name,age);
-		database.push_back(object);
+		
+		database.emplace_back(id, name, age);
 		if (id > maxId) maxId = id;
 	}
 	nextId = maxId + 1;
@@ -78,7 +78,7 @@ void Record::ReadDatabase()
 
 std::ostream& operator<<(std::ostream& os, const Record& rec)
 {
-	os << std::setw(5) << rec.GetId()
+	os << std::setw(2) << rec.GetId()
 	   << std::setw(5)<< rec.GetName() 
 	   << std::setw(5) << rec.GetAge();
 	return os; 
