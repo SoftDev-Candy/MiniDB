@@ -6,6 +6,7 @@
 #include<string>
 #include<vector>
 #include<fstream>
+#include<cstdio>
 
 //To store and record data in an array. 
 class Record  
@@ -55,6 +56,10 @@ public:
 	//To store things in the database as well as the record vector.
 	static void DatabaseSetter(std::string inputName , int inputAge);
 	static const std::vector<Record>& DatabaseGetter();
+
+
+	static void DeleteElement(int id);
+	static const void DeleteTextFile();
 
 	//Create,Read,Append the database file in local system 
 	static void Create_Open_Database();

@@ -36,6 +36,25 @@ const std::vector<Record>& Record::DatabaseGetter()
 	return database;
 }
 
+void Record::DeleteElement(int id)
+{
+	Record::DeleteTextFile();
+	database.erase(database.begin() + id-1);
+}
+
+void const Record::DeleteTextFile() 
+{
+	const char* filename = "Record.txt";
+		if (remove(filename) == 0)
+		{
+			std::cout << "File " << filename << " Deleted Successfully." << std::endl;
+		}
+		else
+		{
+			std::cerr << "Couldn't find file ' " << filename << " ' . " << std::endl;
+		}
+}
+
 void Record::Create_Open_Database() // call function to allow read and write in to the file
 {
 	std::ofstream databasefile("Record.txt", std::ios::app);

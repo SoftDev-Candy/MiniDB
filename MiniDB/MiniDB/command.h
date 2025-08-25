@@ -16,6 +16,8 @@ public:
 	void InsertInRecord(std::vector<std::string>& wordsArray);
 	void SelectAllRecords();
 	void SelectOneRecord(std::vector<std::string>& wordsArray);
+	void DeleteAllRecords(std::vector<std::string>& wordsArray);
+	void DeleteOneRecord(std::vector<std::string>& wordsArray );
 
 };
 

@@ -81,12 +81,36 @@ void DBCommands::startLoop()
 					SelectOneRecord(wordsArray);
 				}
 			}
+			
 			else
 			{
 				std::cout << " Invalid Select Command \n. Select  Commands usuage: ";
 				std::cout << "  select all\n";
 				std::cout << "  select <name>\n";
 			}
+		}
+		else if (wordsArray[0] == "delete")
+		{
+
+			if (wordsArray.size() >= 2)
+			{
+				if (wordsArray[1] == "all")
+				{
+					DeleteAllRecords(wordsArray);
+				}
+				else
+				{
+					DeleteOneRecord(wordsArray);
+				}
+			}
+			else
+			{
+				std::cout << " Invalid Delete Command \n. Delete Commands usuage: ";
+				std::cout << "  delete all\n";
+				std::cout << "  delete <id>\n";
+
+			}
+
 		}
 
 		if (wordsArray.size() > 0) std::cout << "Command: " << wordsArray[0] << "\n"; //the if checks are there to prevent any unknown behaviour
@@ -127,4 +151,16 @@ void DBCommands::SelectOneRecord(std::vector<std::string>& wordsArray)
 	{
 		std::cout << "No Records were found under this Name." << std::endl;
 	}
+}
+
+void DBCommands::DeleteAllRecords(std::vector<std::string>& wordsArray)
+{
+
+}
+
+void DBCommands::DeleteOneRecord(std::vector<std::string>& wordsArray)
+{
+	int id = std::stoi(wordsArray[1]);
+	Record::DeleteElement(id);
+
 }

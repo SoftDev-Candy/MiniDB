@@ -1,3 +1,0 @@
-1 john 24
-2 john 45
-3 john 22
