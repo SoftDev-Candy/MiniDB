@@ -1,4 +1,4 @@
-#include"command.h"
+﻿#include"command.h"
 
 std::string DBCommands::Input()
 {
@@ -155,12 +155,11 @@ void DBCommands::SelectOneRecord(std::vector<std::string>& wordsArray)
 
 void DBCommands::DeleteAllRecords(std::vector<std::string>& wordsArray)
 {
-
+	std::cout << "Really thought I was going to let you delete my entire database eheheheheheh! []~(￣▽￣)~*dodo" << std::endl;
 }
 
 void DBCommands::DeleteOneRecord(std::vector<std::string>& wordsArray)
 {
 	int id = std::stoi(wordsArray[1]);
 	Record::DeleteElement(id);
-
 }

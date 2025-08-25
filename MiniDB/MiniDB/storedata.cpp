@@ -28,7 +28,6 @@ void Record::DatabaseSetter(std::string inputName, int inputAge)   // this will 
 	Record obj(inputName,inputAge);
 	database.push_back(obj);
 	obj.AppendDatabase();
-
 }
 
 const std::vector<Record>& Record::DatabaseGetter()
@@ -38,21 +37,34 @@ const std::vector<Record>& Record::DatabaseGetter()
 
 void Record::DeleteElement(int id)
 {
-	Record::DeleteTextFile();
+	if (id <= 0 || id > database.size()) {
+		std::cout << "Invalid ID: " << id << " (no such record)" << std::endl;
+		return;
+	}
+	Record::ClearTextFile();
 	database.erase(database.begin() + id-1);
+
+	if (database.empty())
+	{
+		std::cerr << "Database is empty nothing to delete" << std::endl;
+		return;
+	}
+
+	std::fstream databasefile("Record.txt", std::ios::app);
+	
+	for (auto& element : database) 
+	{
+		databasefile << element.GetId() << " " << element.GetName() << " " << element.GetAge() << std::endl;
+
+	}
 }
 
-void const Record::DeleteTextFile() 
+void const Record::ClearTextFile()
 {
 	const char* filename = "Record.txt";
-		if (remove(filename) == 0)
-		{
-			std::cout << "File " << filename << " Deleted Successfully." << std::endl;
-		}
-		else
-		{
-			std::cerr << "Couldn't find file ' " << filename << " ' . " << std::endl;
-		}
+	std::ofstream ofs(filename, std::ios::out | std::ios::trunc);
+	// The file is truncated here. No need to write anything.
+	// The destructor of ofs will close the file automatically when it goes out of scope.
 }
 
 void Record::Create_Open_Database() // call function to allow read and write in to the file
@@ -88,7 +100,6 @@ void Record::ReadDatabase()
 
 	while (databasefile >> id >> name >> age )
 	{
-		
 		database.emplace_back(id, name, age);
 		if (id > maxId) maxId = id;
 	}
